@@ -1,4 +1,8 @@
 # Fiber-health-check 🩺 Middleware
+[![codecov](https://codecov.io/gh/aschenmaker/fiber-health-check/branch/master/graph/badge.svg?token=IA1S3HB9TE)](https://codecov.io/gh/aschenmaker/fiber-health-check)
+[![License](https://img.shields.io/github/license/aschenmaker/fiber-health-check)](LICENSE)
+[![GoDoc](https://pkg.go.dev/badge/github.com/aschenmaker/fiber-health-check)](https://pkg.go.dev/github.com/aschenmaker/fiber-health-check)
+
 🩺Fiber-health-check middleware support health-check for [Fiber](https://github.com/gofiber/fiber)⚡️ framework.
 
 ## Signatures
