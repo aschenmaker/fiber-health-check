@@ -1,0 +1,35 @@
+name: Go
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.16
+
+    - name: Build
+      run: go build -v ./...
+
+    - name: Test
+      run: go test -v -race $(go list ./... | grep -v /examples/) -coverprofile=coverage.txt -covermode=atomic
+    
+    - name: CodeCov
+      uses: codecov/codecov-action@v1
+      with:
+         # token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+        files: ./coverage.txt
+        flags: unittests # optional
+        name: codecov-umbrella # optional
+        fail_ci_if_error: true # optional (default = false)
+        verbose: true # optional (default = false)
