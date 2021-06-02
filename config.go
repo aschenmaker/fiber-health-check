@@ -2,6 +2,7 @@ package healthcheck
 
 import "net/http"
 
+// Config defines the config for middleware.
 type Config struct {
 	HeaderName   string
 	HeaderValue  string
@@ -31,6 +32,7 @@ var (
 	}
 )
 
+// configDefault defines the default config for middleware.
 func configDefault(config ...Config) Config {
 	if len(config) < 1 {
 		return DefaultConfig
