@@ -2,11 +2,23 @@ package healthcheck
 
 import "net/http"
 
-// Config defines the config for middleware.
+// Config defines the config for middleware
 type Config struct {
-	HeaderName   string
-	HeaderValue  string
+	// HeaderName defines the health check header key
+	//
+	// Optional. Default: "X-Health-Check"
+	HeaderName string
+	// HeaderValue defines the health check header val
+	//
+	// Optional. Default: "1"
+	HeaderValue string
+	// ResponseCode defines the health check response code
+	//
+	// Optional. Default: http.StatusOK
 	ResponseCode int
+	// ResponseText defines the health check response description
+	//
+	// Optional. Default: "ok"
 	ResponseText string
 }
 
@@ -32,7 +44,7 @@ var (
 	}
 )
 
-// configDefault defines the default config for middleware.
+// helper defines the default config for middleware.
 func configDefault(config ...Config) Config {
 	if len(config) < 1 {
 		return DefaultConfig
